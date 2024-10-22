@@ -32,7 +32,7 @@ class _OnBoardingState extends State<OnBoarding> {
                   text: AppStrings.skip,
                   function: () {
                     onBoardingVisited();
-                    pushReplacementNavigate(context, '/registerScreen');
+                    pushReplacementNavigate(context, '/SignUpScreen');
                   },
                 ),
               ),

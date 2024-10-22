@@ -21,7 +21,7 @@ class GetButtons extends StatelessWidget {
             buttonString: AppStrings.createAccount,
             onPressed: () {
               onBoardingVisited();
-              customNavigate(context, '/registerScreen');
+              customNavigate(context, '/SignUpScreen');
             },
           ),
           const SizedBox(
@@ -32,7 +32,7 @@ class GetButtons extends StatelessWidget {
               text: AppStrings.loginNow,
               function: () {
                 onBoardingVisited();
-                pushReplacementNavigate(context, '/loginScreen');
+                pushReplacementNavigate(context, '/SignInScreen');
               },
             ),
           )

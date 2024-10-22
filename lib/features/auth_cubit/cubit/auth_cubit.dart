@@ -16,7 +16,7 @@ class AuthCubit extends Cubit<AuthState> {
   GlobalKey<FormState> signInFormKey = GlobalKey();
   GlobalKey<FormState> forgotPasswordFormKey = GlobalKey();
 
-  signUpWithEmailAndPassword() async {
+  Future<void> signUpWithEmailAndPassword() async {
     try {
       emit(SignUpLoadingState());
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -43,25 +43,7 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  updateTermsAndConditionCheckBox({required newValue}) {
-    termsAndConditionCheckBoxValue = newValue;
-    emit(TermsAndConditionUpdateState());
-  }
-
-  scurePasswordText() {
-    if (scurePasswordTextValue == true) {
-      scurePasswordTextValue = false;
-    } else {
-      scurePasswordTextValue = true;
-    }
-    emit(ScurePasswordTextUpdateState());
-  }
-
-  verifyEmail() async {
-    await FirebaseAuth.instance.currentUser!.sendEmailVerification();
-  }
-
-  signInWithEmailAndPassword() async {
+  Future<void> signInWithEmailAndPassword() async {
     try {
       emit(SignInLoadingState());
       await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -83,7 +65,25 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  resetPasswordWithLink() async {
+  void updateTermsAndConditionCheckBox({required newValue}) {
+    termsAndConditionCheckBoxValue = newValue;
+    emit(TermsAndConditionUpdateState());
+  }
+
+  void scurePasswordText() {
+    if (scurePasswordTextValue == true) {
+      scurePasswordTextValue = false;
+    } else {
+      scurePasswordTextValue = true;
+    }
+    emit(ScurePasswordTextUpdateState());
+  }
+
+  Future<void> verifyEmail() async {
+    await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+  }
+
+  Future<void> resetPasswordWithLink() async {
     try {
       emit(ResetPasswordLoadingState());
       await FirebaseAuth.instance.sendPasswordResetEmail(email: emailAddress!);
@@ -93,7 +93,7 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  addUserProfile() async {
+  Future<void> addUserProfile() async {
     CollectionReference users =
         FirebaseFirestore.instance.collection(("Users"));
     await users.add({

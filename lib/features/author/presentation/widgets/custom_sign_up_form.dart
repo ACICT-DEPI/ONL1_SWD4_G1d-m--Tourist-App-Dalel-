@@ -19,7 +19,7 @@ class CustomSignUpForm extends StatelessWidget {
       listener: (context, state) {
         if (state is SignUpSuccessState) {
           showToast("Successfully, Check your email to verfiy your account!");
-          pushReplacementNavigate(context, "/loginScreen");
+          pushReplacementNavigate(context, "/SignInScreen");
         } else if (state is SignUpFailureState) {
           showToast(state.errMessage);
         }
@@ -75,12 +75,12 @@ class CustomSignUpForm extends StatelessWidget {
                             authCubit.termsAndConditionCheckBoxValue == false
                                 ? AppColors.grey
                                 : null,
-                        onPressed: () {
+                        onPressed: () async {
                           if (authCubit.termsAndConditionCheckBoxValue ==
                               true) {
                             if (authCubit.signUpFormKey.currentState!
                                 .validate()) {
-                              authCubit.signUpWithEmailAndPassword();
+                              await authCubit.signUpWithEmailAndPassword();
                             }
                           }
                         },

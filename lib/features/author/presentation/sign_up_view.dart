@@ -5,8 +5,8 @@ import 'package:dalel/features/author/presentation/widgets/custom_welcome.dart';
 import 'package:dalel/features/author/presentation/widgets/custom_sign_up_form.dart';
 import 'package:flutter/material.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class RegisterScreen extends StatelessWidget {
                   text1: AppStrings.alreadyHaveAnAccount,
                   text2: AppStrings.signIn,
                   onTap: () {
-                    pushReplacementNavigate(context, "/loginScreen");
+                    pushReplacementNavigate(context, "/SignInScreen");
                   },
                 ),
               ),

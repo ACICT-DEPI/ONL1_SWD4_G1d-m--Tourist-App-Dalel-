@@ -23,7 +23,7 @@ class WelcomBanner extends StatelessWidget {
             AppStrings.appName,
             style: CustomTextStyles.pacifico700style34,
           ),
-          const SizedBox(height: 18),
+          // const SizedBox(height: 18),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,

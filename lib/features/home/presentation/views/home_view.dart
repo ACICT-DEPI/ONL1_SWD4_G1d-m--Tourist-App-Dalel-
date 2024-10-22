@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
           IconButton(
             onPressed: () {
               FirebaseAuth.instance.signOut();
-              pushReplacementNavigate(context, '/registerScreen');
+              pushReplacementNavigate(context, '/SignUpScreen');
             },
             icon: const Icon(Icons.logout),
           ),
