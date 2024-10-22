@@ -1,6 +1,8 @@
 import 'package:dalel/core/functions/navigate_push.dart';
 import 'package:dalel/core/uitils/app_text_styles.dart';
 import 'package:dalel/data/cache_helper.dart';
+import 'package:dalel/services/service_lockator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,9 +15,12 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    bool onBoardingvisited = CacheHelper().getData(key: "onBoardingvisited") ?? false;
+    bool onBoardingvisited =
+        getIt<CacheHelper>().getData(key: "onBoardingvisited") ?? false;
     if (onBoardingvisited == true) {
-      delayedNavigate(context, '/registerScreen');
+      FirebaseAuth.instance.currentUser == null
+          ? delayedNavigate(context, '/loginScreen')
+          : delayedNavigate(context, '/home');
     } else {
       delayedNavigate(context, '/onBoarding');
     }
@@ -30,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
           child: Text(
         'Dalel',
-        style: TextStyles.pacifico400style64,
+        style: CustomTextStyles.pacifico400style64,
       )),
     );
   }

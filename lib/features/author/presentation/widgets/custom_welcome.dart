@@ -1,17 +1,16 @@
 import 'package:dalel/core/uitils/app_colors.dart';
-import 'package:dalel/core/uitils/app_strings.dart';
 import 'package:dalel/core/uitils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomWelcomWidget extends StatelessWidget {
-  const CustomWelcomWidget({super.key});
-
+  const CustomWelcomWidget({super.key, required this.text});
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        AppStrings.welcome,
-        style: TextStyles.poppins600style28.copyWith(
+        text,
+        style: CustomTextStyles.poppins600style28.copyWith(
           color: AppColors.deepBrown,
         ),
       ),

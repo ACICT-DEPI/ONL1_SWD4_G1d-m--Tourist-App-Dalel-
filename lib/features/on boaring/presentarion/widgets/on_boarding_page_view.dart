@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 class OnBoardingPageView extends StatelessWidget {
   const OnBoardingPageView({
     super.key,
-    required this.controller, this.onPageChanged,
-
+    required this.controller,
+    this.onPageChanged,
   });
 
   final PageController controller;
@@ -29,29 +29,27 @@ class OnBoardingPageView extends StatelessWidget {
               Container(
                 height: 290,
                 width: 3930,
-                decoration:  BoxDecoration(
+                decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(onBoardingList[index].image),
                     fit: BoxFit.fill,
                   ),
-                  
                 ),
-                
               ),
               const SizedBox(height: 16),
               SmoothDotsIndicator(controller: controller),
               const SizedBox(height: 16),
               CustomText(
                 text: onBoardingList[index].title,
-                style:
-                    TextStyles.poppins500style24.copyWith(color: Colors.black),
+                style: CustomTextStyles.poppins500style24
+                    .copyWith(color: Colors.black),
               ),
               const SizedBox(
                 height: 16,
               ),
               CustomText(
                   text: onBoardingList[index].subTitle,
-                  style: TextStyles.poppins300style16),
+                  style: CustomTextStyles.poppins300style16),
               const SizedBox(height: 16),
             ],
           );

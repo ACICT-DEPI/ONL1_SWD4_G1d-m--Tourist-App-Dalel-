@@ -12,6 +12,7 @@ class AuthCubit extends Cubit<AuthState> {
   bool? termsAndConditionCheckBoxValue = false;
   bool? scurePasswordTextValue = true;
   GlobalKey<FormState> signUpFormKey = GlobalKey();
+  GlobalKey<FormState> signInFormKey = GlobalKey();
   signUpWithEmailAndPassword() async {
     try {
       emit(SignUpLoadingState());
@@ -38,6 +39,7 @@ class AuthCubit extends Cubit<AuthState> {
     termsAndConditionCheckBoxValue = newValue;
     emit(TermsAndConditionUpdateState());
   }
+
   scurePasswordText() {
     if (scurePasswordTextValue == true) {
       scurePasswordTextValue = false;
@@ -45,5 +47,25 @@ class AuthCubit extends Cubit<AuthState> {
       scurePasswordTextValue = true;
     }
     emit(ScurePasswordTextUpdateState());
+  }
+
+  signInWithEmailAndPassword() async {
+    try {
+      emit(SigInLoadingState());
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailAddress!,
+        password: password!,
+      );
+      emit(SignInSuccessState());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        emit(SignInFailureState(errMessage: 'No user found for that email.'));
+      } else if (e.code == 'wrong-password') {
+        emit(SignInFailureState(
+            errMessage: 'Wrong password provided for that user.'));
+      }
+    } catch (e) {
+      emit(SignInFailureState(errMessage: e.toString()));
+    }
   }
 }

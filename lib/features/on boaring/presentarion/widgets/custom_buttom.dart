@@ -26,7 +26,7 @@ class CustomButton extends StatelessWidget {
             )),
         child: Text(
           buttonString,
-          style: TextStyles.poppins300style16
+          style: CustomTextStyles.poppins300style16
               .copyWith(color: textColor ?? AppColors.offWhite),
         ),
       ),

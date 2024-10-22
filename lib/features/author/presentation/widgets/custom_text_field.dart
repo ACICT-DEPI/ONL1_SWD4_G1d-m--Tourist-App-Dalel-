@@ -36,7 +36,7 @@ class CustomTextFormField extends StatelessWidget {
           obscureText: scureText ?? false,
           decoration: InputDecoration(
             labelText: text,
-            labelStyle: TextStyles.poppins400style12.copyWith(
+            labelStyle: CustomTextStyles.poppins400style12.copyWith(
               fontWeight: FontWeight.w200,
             ),
             suffixIcon: suffixIcon,

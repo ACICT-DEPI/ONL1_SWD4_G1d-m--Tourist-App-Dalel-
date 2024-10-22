@@ -1,9 +1,9 @@
 import 'package:dalel/features/auth_cubit/cubit/auth_cubit.dart';
 import 'package:dalel/features/author/presentation/login.dart';
 import 'package:dalel/features/author/presentation/register.dart';
+import 'package:dalel/features/home/presentation/views/home_view.dart';
 import 'package:dalel/features/splashs/presentation/view.dart';
-import 'package:dalel/features/on%20boaring/presentarion/on_board_screen.dart';
-import 'package:dalel/services/service_lockator.dart';
+import 'package:dalel/features/on%20boaring/presentarion/onboard_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,7 +23,7 @@ final GoRouter ourRouter = GoRouter(
     GoRoute(
       path: '/loginScreen',
       builder: (context, state) => BlocProvider(
-        create: (context) => getIt<AuthCubit>(),
+        create: (context) => AuthCubit(),
         child: const LoginScreen(),
       ),
     ),
@@ -31,9 +31,13 @@ final GoRouter ourRouter = GoRouter(
     GoRoute(
       path: '/registerScreen',
       builder: (context, state) => BlocProvider(
-        create: (context) => getIt<AuthCubit>(),
+        create: (context) => AuthCubit(),
         child: const RegisterScreen(),
       ),
+    ),
+    GoRoute(
+      path: '/home',
+      builder: (context, state) => const HomeView(),
     ),
   ],
 );
