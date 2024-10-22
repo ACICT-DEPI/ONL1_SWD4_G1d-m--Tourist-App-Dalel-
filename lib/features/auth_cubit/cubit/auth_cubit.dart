@@ -13,6 +13,8 @@ class AuthCubit extends Cubit<AuthState> {
   bool? scurePasswordTextValue = true;
   GlobalKey<FormState> signUpFormKey = GlobalKey();
   GlobalKey<FormState> signInFormKey = GlobalKey();
+  GlobalKey<FormState> forgotPasswordFormKey = GlobalKey();
+
   signUpWithEmailAndPassword() async {
     try {
       emit(SignUpLoadingState());
@@ -21,7 +23,7 @@ class AuthCubit extends Cubit<AuthState> {
         password: password!,
       );
       verifyEmail();
-      emit(SingUpSuccessState());
+      emit(SignUpSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         emit(SignUpFailureState(
@@ -59,7 +61,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   signInWithEmailAndPassword() async {
     try {
-      emit(SigInLoadingState());
+      emit(SignInLoadingState());
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailAddress!,
         password: password!,
@@ -76,6 +78,16 @@ class AuthCubit extends Cubit<AuthState> {
       }
     } catch (e) {
       emit(SignInFailureState(errMessage: e.toString()));
+    }
+  }
+
+  resetPasswordWithLink() async {
+    try {
+      emit(ResetPasswordLoadingState());
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: emailAddress!);
+      emit(ResetPasswordSuccessState());
+    } catch (e) {
+      emit(ResetPasswordFailureState(errMessage: e.toString()));
     }
   }
 }

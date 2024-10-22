@@ -59,7 +59,7 @@ class CustomSignInForm extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              state is SigInLoadingState
+              state is SignInLoadingState
                   ? CircularProgressIndicator(
                       color: AppColors.primaryColor,
                     )

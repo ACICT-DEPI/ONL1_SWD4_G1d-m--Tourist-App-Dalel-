@@ -2,7 +2,7 @@ import 'package:dalel/core/functions/navigate_push.dart';
 import 'package:dalel/core/uitils/app_strings.dart';
 import 'package:dalel/features/author/presentation/widgets/custom_texts_span.dart';
 import 'package:dalel/features/author/presentation/widgets/custom_welcome.dart';
-import 'package:dalel/features/author/presentation/widgets/custon_sign_up_form.dart';
+import 'package:dalel/features/author/presentation/widgets/custom_sign_up_form.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatelessWidget {
