@@ -2,7 +2,6 @@ import 'package:dalel/core/uitils/app_colors.dart';
 import 'package:dalel/core/uitils/app_strings.dart';
 import 'package:dalel/features/auth_cubit/cubit/auth_cubit.dart';
 import 'package:dalel/features/auth_cubit/cubit/auth_state.dart';
-import 'package:dalel/features/author/data/cubit/author_cubit.dart';
 import 'package:dalel/features/author/presentation/widgets/custom_text_field.dart';
 import 'package:dalel/features/author/presentation/widgets/terms_and_condition_widget.dart';
 import 'package:dalel/features/on%20boaring/presentarion/widgets/custom_buttom.dart';
@@ -17,7 +16,6 @@ class CustomSignUpForm extends StatelessWidget {
     AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        // TODO: implement listener
       },
       builder: (context, state) {
         return Form(
@@ -44,6 +42,17 @@ class CustomSignUpForm extends StatelessWidget {
                 ),
                 CustomTextFormField(
                   text: AppStrings.password,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      authCubit.scurePasswordTextValue == true
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
+                    ),
+                    onPressed: () {
+                      authCubit.scurePasswordText();
+                    },
+                  ),
+                  scureText: authCubit.scurePasswordTextValue,
                   onChanged: (password) {
                     authCubit.password = password;
                   },

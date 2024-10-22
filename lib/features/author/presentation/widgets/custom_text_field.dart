@@ -4,10 +4,17 @@ import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField(
-      {super.key, required this.text, this.onFieldSubmitted, this.onChanged});
+      {super.key,
+      required this.text,
+      this.onFieldSubmitted,
+      this.onChanged,
+      this.scureText,
+      this.suffixIcon});
   final String text;
   final Function(String)? onFieldSubmitted;
   final Function(String)? onChanged;
+  final bool? scureText;
+  final Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,11 +33,13 @@ class CustomTextFormField extends StatelessWidget {
           },
           onChanged: onChanged,
           onFieldSubmitted: onFieldSubmitted,
+          obscureText: scureText ?? false,
           decoration: InputDecoration(
             labelText: text,
             labelStyle: TextStyles.poppins400style12.copyWith(
               fontWeight: FontWeight.w200,
             ),
+            suffixIcon: suffixIcon,
             focusedBorder: getOutLineBorder(),
             enabledBorder: getOutLineBorder(),
             border: getOutLineBorder(),

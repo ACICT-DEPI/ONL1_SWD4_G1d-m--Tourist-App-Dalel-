@@ -12,3 +12,4 @@ class SignUpFailureState extends AuthState {
   SignUpFailureState({required this.errMessage});
 }
 class TermsAndConditionUpdateState extends AuthState {}
+final class ScurePasswordTextUpdateState extends AuthState {}
