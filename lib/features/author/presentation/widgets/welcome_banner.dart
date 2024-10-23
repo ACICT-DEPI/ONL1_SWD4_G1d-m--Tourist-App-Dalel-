@@ -28,8 +28,8 @@ class WelcomBanner extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              SvgPicture.asset(Assets.imagesVector1),
-              SvgPicture.asset(Assets.imagesVector2),
+              SvgPicture.asset(Assets.assetsImagesVector1),
+              SvgPicture.asset(Assets.assetsImagesVector2),
             ],
           )
         ],

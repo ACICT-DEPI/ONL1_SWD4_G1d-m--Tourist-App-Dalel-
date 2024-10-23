@@ -3,6 +3,7 @@ import 'package:dalel/features/author/presentation/forgot_password_view.dart';
 import 'package:dalel/features/author/presentation/sign_in_view.dart';
 import 'package:dalel/features/author/presentation/sign_up_view.dart';
 import 'package:dalel/features/home/presentation/views/home_view.dart';
+import 'package:dalel/features/home/widgets/home_nav_bar_widget.dart';
 import 'package:dalel/features/splashs/presentation/view.dart';
 import 'package:dalel/features/on%20boaring/presentarion/onboard_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,8 +45,8 @@ final GoRouter ourRouter = GoRouter(
       ),
     ),
     GoRoute(
-      path: '/home',
-      builder: (context, state) => const HomeView(),
+      path: '/homeNavBar',
+      builder: (context, state) => const HomeNavBarWidget(),
     ),
   ],
 );

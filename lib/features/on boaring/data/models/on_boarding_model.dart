@@ -11,20 +11,20 @@ class OnBoardingModel {
   });
 }
 
-List<OnBoardingModel> onBoardingList  = [
+List<OnBoardingModel> onBoardingList = [
   OnBoardingModel(
-    image: Assets.imagesOnBoarding,
+    image: Assets.assetsImagesOnBoarding,
     title: "Explore The history with Dalel in a smart way",
     subTitle:
         "Using our app’s history libraries you can find many historical periods ",
   ),
   OnBoardingModel(
-    image: Assets.imagesOnBoarding1,
+    image: Assets.assetsImagesDetails2,
     title: "From every place on earth",
     subTitle: "A big variety of ancient places from all over the world",
   ),
   OnBoardingModel(
-    image: Assets.imagesOnBoarding2,
+    image: Assets.assetsImagesDetails3,
     title: "Using modern AI technology for better user experience",
     subTitle:
         "AI provide recommendations and helps you to continue the search journey",

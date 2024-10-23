@@ -45,6 +45,7 @@ dependencies:
   fluttertoast: ^8.2.8
   flutter_svg: ^2.0.10+1
   cloud_firestore: ^5.4.4
+  persistent_bottom_nav_bar: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -99,3 +100,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+# flutter_assets:
+#   assets_path: assets/
+#   output_path: lib/uitils/
+#   filename: app_assets.dart
