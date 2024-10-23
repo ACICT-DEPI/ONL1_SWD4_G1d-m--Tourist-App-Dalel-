@@ -2,7 +2,7 @@ import 'package:dalel/core/functions/navigate_push.dart';
 import 'package:dalel/core/uitils/app_strings.dart';
 import 'package:dalel/features/on%20boaring/data/models/on_boarding_model.dart';
 import 'package:dalel/features/on%20boaring/functions/onboarding_visited.dart';
-import 'package:dalel/features/on%20boaring/presentarion/widgets/custom_buttom.dart';
+import 'package:dalel/widgets/custom_buttom.dart';
 import 'package:dalel/features/on%20boaring/presentarion/widgets/gesture_detector_text.dart';
 import 'package:flutter/material.dart';
 

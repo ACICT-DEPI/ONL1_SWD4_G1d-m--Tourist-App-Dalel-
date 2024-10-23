@@ -2,7 +2,6 @@ import 'package:dalel/features/auth_cubit/cubit/auth_cubit.dart';
 import 'package:dalel/features/author/presentation/forgot_password_view.dart';
 import 'package:dalel/features/author/presentation/sign_in_view.dart';
 import 'package:dalel/features/author/presentation/sign_up_view.dart';
-import 'package:dalel/features/home/presentation/views/home_view.dart';
 import 'package:dalel/features/home/widgets/home_nav_bar_widget.dart';
 import 'package:dalel/features/splashs/presentation/view.dart';
 import 'package:dalel/features/on%20boaring/presentarion/onboard_screen.dart';
