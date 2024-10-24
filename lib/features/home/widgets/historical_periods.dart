@@ -2,7 +2,7 @@ import 'package:dalel/core/functions/custom_toast.dart';
 import 'package:dalel/features/home/cubit/home_cubit.dart';
 import 'package:dalel/features/home/cubit/home_state.dart';
 import 'package:dalel/widgets/custom_shimmer_catigory.dart';
-import 'package:dalel/features/home/widgets/historical_periods_item.dart';
+import 'package:dalel/widgets/customd_data_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,26 +20,8 @@ class HistoricalPeriods extends StatelessWidget {
       builder: (context, state) {
         return state is GetHistoricalPeriodsLoading
             ? const CustomShimmerCatigory()
-            : SizedBox(
-                height: 100,
-                child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return HistoricalPeriodItem(
-                        model: context
-                            .read<HomeCubit>()
-                            .historicalPeriodsList[index],
-                      );
-                    },
-                    clipBehavior: Clip.none,
-                    itemCount:
-                        context.read<HomeCubit>().historicalPeriodsList.length,
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(
-                        width: 10,
-                      );
-                    }),
-              );
+            : CustomDataListView(
+                modelList: context.read<HomeCubit>().historicalPeriodsList);
       },
     );
   }
