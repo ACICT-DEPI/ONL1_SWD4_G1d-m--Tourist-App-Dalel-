@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 
 class CustomDataListView extends StatelessWidget {
   const CustomDataListView({
-    super.key, required this.modelList,
+    super.key,
+    required this.modelList, required this.routePath,
   });
   final List<DataModel> modelList;
+  final String routePath;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -14,8 +16,9 @@ class CustomDataListView extends StatelessWidget {
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return CustomDataListItem(
+            return CustomDataListViewItem(
               model: modelList[index],
+              routePath: routePath,
             );
           },
           clipBehavior: Clip.none,

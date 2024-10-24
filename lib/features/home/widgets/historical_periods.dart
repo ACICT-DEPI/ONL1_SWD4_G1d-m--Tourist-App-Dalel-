@@ -21,7 +21,8 @@ class HistoricalPeriods extends StatelessWidget {
         return state is GetHistoricalPeriodsLoading
             ? const CustomShimmerCatigory()
             : CustomDataListView(
-                modelList: context.read<HomeCubit>().historicalPeriodsList);
+                modelList: context.read<HomeCubit>().historicalPeriodsList, 
+                routePath:"/historicalPeriodItemDetailsView");
       },
     );
   }
